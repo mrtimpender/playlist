@@ -1,0 +1,87 @@
+body {
+  background-color: #EAEAEA;
+  margin:0;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+a:visted {
+  color:white;
+}
+
+header {
+  background-color: #898A79;
+  border-bottom: 2px solid black;
+  width:100vw;
+  position: absolute;
+  height: 5vh;
+  top:0;
+  z-index: 1;
+}
+
+footer{
+  background-color: #555646;
+  position: fixed;
+  width: 100%;
+  color: white;
+  height: 5vh;
+  padding-top: 2vh;
+  bottom: 0;
+}
+
+copyright{
+    position: relative;
+    margin: 10vh 0 0 2vh;
+    font-size: 1.25em;
+}
+
+#left{
+  width:49vw;
+  float:left;
+  display: inline-block;
+  position:relative;
+}
+
+heading {
+  position: absolute;
+  text-align: center;
+  margin: 40vh 0 0 35%;
+  font-size: 2em;
+  color:#3A0054;
+  position
+}
+
+#chooseTracks{
+  position: absolute;
+  text-align: center;
+  margin: 45vh 0 0 34%;
+  font-size: 1.25em;
+  color: white;
+  background-color: #28291C;
+  border-radius: 5px;
+}
+
+#right {
+  position:relative;
+  width:49vw;
+  float:right;
+  right:0;
+  margin-top: 5vh;
+}
+.railroad {
+  position: absolute;
+  height:95vh;
+  width:100%;
+  opacity: 0.19;
+  z-index: -1;
+}
+
+.albumPic{
+  display: inline-block;
+  height: 25vh;
+  width:25vh;
+  margin: 2vh 0 2vh 37%;
+  z-index: 5;
+}
