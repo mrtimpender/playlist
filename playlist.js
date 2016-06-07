@@ -44,6 +44,8 @@ submitBin.addEventListener("click", function(){
   sendData.addEventListener("load", function(event) {
      console.log(event.target.responseText);
    });
+   trackBox.innerHTML = "";
+   postData = [];
 })
 
 
