@@ -6,10 +6,11 @@ request.onreadystatechange = function () {
       var rando1 = document.getElementById('rando1');
       var rando2 = document.getElementById('rando2');
       var rando3 = document.getElementById('rando3');
-      var data = JSON.parse(request.responseText);
-
+      var data = JSON.parse(request.responseText).albums.items;
+      // console.log(data);
+      // console.log(data[1].images[0].url);
       var temp = [];
-      for (i=0; i<data.results.length; i++){
+      for (i=0; i<data.length; i++){
         temp.push(i);
       }
 
@@ -20,16 +21,18 @@ request.onreadystatechange = function () {
               array[i] = array[j];
               array[j] = temp;
             }
+            // console.log(array);
         return array;
         }
 
     shuffleArray(temp);
-          rando1.src = "images/" +data.results[temp[0]].cover_art;
-          rando2.src = "images/" +data.results[temp[1]].cover_art;
-          rando3.src = "images/" +data.results[temp[2]].cover_art;
+    console.log(data[temp[0]].images[0].url);
+          rando1.src = data[temp[0]].images[1].url
+          rando2.src = data[temp[1]].images[1].url
+          rando3.src = data[temp[2]].images[1].url
 
 
     }
 }
-request.open('GET', "https://lit-fortress-6467.herokuapp.com/object", true );
+request.open('GET', "https://api.spotify.com/v1/search?q=pink%20floyd&type=album&market=US", true );
 request.send();
