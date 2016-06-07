@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Avenir';
+  src: 'fonts/AvenirNextLTPro-Regular.otf'
+}
+
+* {
+  font-family: 'Avenir', sans-serif;
+}
+
 body {
   background-color: #EAEAEA;
   margin:0;
@@ -37,6 +46,8 @@ copyright{
     font-size: 1.25em;
 }
 
+/*------ SPLASH PAGE STYLINGS ------*/
+
 #left{
   width:49vw;
   float:left;
@@ -50,17 +61,18 @@ heading {
   margin: 40vh 0 0 35%;
   font-size: 2em;
   color:#3A0054;
-  position
 }
 
-#chooseTracks{
-  position: absolute;
+.btn {
   text-align: center;
-  margin: 45vh 0 0 34%;
   font-size: 1.25em;
   color: white;
   background-color: #28291C;
   border-radius: 5px;
+}
+
+#chooseTracks{
+  margin: 45vh 0 0 34%;
 }
 
 #right {
@@ -84,4 +96,60 @@ heading {
   width:25vh;
   margin: 2vh 0 2vh 37%;
   z-index: 5;
+}
+
+/*---- PLAYLIST STYLINGS ----- */
+
+container {
+  width:90vw;
+  margin-left: 5vw;
+  height: 100vh;
+  display: inline-block;
+}
+
+
+fatHeader {
+  background-color: #898A79;
+  position: absolute;
+  width:100vw;
+  height:20vh;
+  top:0;
+  z-index: 1;
+  color:white;
+}
+fatHeader p {
+  bottom: 0;
+  margin-top: 13vh;
+  margin-left: 10vh;
+  font-size: 1.5em;
+}
+
+#albums {
+  width: 80vw;
+  height: 15vh;
+  margin:22vh auto auto auto;
+  display: flex;
+  overflow: scroll;
+}
+
+#albums img {
+  height: 15vh;
+  margin: auto 2vw auto auto;
+}
+
+#trackBox {
+  width:80vw;
+  height: 30vh;
+  border:1px solid black;
+  margin: 5vh auto 2vh auto;
+  overflow: scroll;
+}
+
+#trackBox p {
+  margin: 0.5vh 0 0.5vh 2vw;
+  font-weight: bold;
+}
+
+#clearTracks {
+  margin-left: 5vw;
 }
