@@ -146,7 +146,7 @@ fatHeader p {
 }
 
 #trackBox p {
-  margin: 0.5vh 0 0.5vh 2vw;
+  margin: 0.5vh 0 0.25vh 2vw;
   font-weight: bold;
 }
 

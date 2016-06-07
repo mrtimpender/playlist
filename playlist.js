@@ -1,13 +1,14 @@
 var request = new XMLHttpRequest();
+var sendData = new XMLHttpRequest();
 var albumsDiv = document.getElementById('albums');
 var trackBox = document.getElementById('trackBox');
 var clearTracks = document.getElementById('clearTracks');
+var submitBin = document.getElementById('submitBin');
+var postData = [];
 
 request.onreadystatechange = function () {
   if (request.status === 200 && request.readyState === 4){
     var data = JSON.parse(request.responseText);
-
-    console.log(data.results);
 
     for (i=0; i<data.results.length; i++){
       var newImg = document.createElement("img");
@@ -24,6 +25,7 @@ request.onreadystatechange = function () {
         var newSelection = document.createElement("p");
         newSelection.innerHTML = data.results[selectionNum].artist + " : " + data.results[selectionNum].title;
         trackBox.appendChild(newSelection);
+        postData.push(data.results[selectionNum]);
       })
     }
 
@@ -32,7 +34,19 @@ request.onreadystatechange = function () {
 
 clearTracks.addEventListener("click", function(){
   trackBox.innerHTML = "";
+  postData = [];
 });
+
+submitBin.addEventListener("click", function(){
+  postData = JSON.stringify(postData);
+  sendData.open('POST', "https://lit-fortress-6467.herokuapp.com/post");
+  sendData.send(postData);
+  sendData.addEventListener("load", function(event) {
+     console.log(event.target.responseText);
+   });
+})
+
+
 
 request.open('GET', "https://lit-fortress-6467.herokuapp.com/object", true);
 request.send();
