@@ -42,7 +42,7 @@ footer{
 
 copyright{
     position: relative;
-    margin: 10vh 0 0 2vh;
+    margin: 10vh 0 0 5vh;
     font-size: 1.25em;
 }
 
@@ -120,7 +120,7 @@ fatHeader {
 fatHeader p {
   bottom: 0;
   margin-top: 13vh;
-  margin-left: 10vh;
+  margin-left: 5vh;
   font-size: 1.5em;
 }
 

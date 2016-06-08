@@ -40,16 +40,16 @@ clearTracks.addEventListener("click", function(){
   postData = [];
 });
 
-// submitBin.addEventListener("click", function(){
-//   postData = JSON.stringify(postData);
-//   sendData.open('POST', "https://lit-fortress-6467.herokuapp.com/post");
-//   sendData.send(postData);
-//   sendData.addEventListener("load", function(event) {
-//      console.log(event.target.responseText);
-//    });
-//    trackBox.innerHTML = "";
-//    postData = [];
-// })
+submitBin.addEventListener("click", function(){
+  postData = JSON.stringify(postData);
+  // sendData.open('POST', "https://lit-fortress-6467.herokuapp.com/post");
+  // sendData.send(postData);
+  // sendData.addEventListener("load", function(event) {
+  //    console.log(event.target.responseText);
+  //  });
+   trackBox.innerHTML = "";
+   postData = [];
+})
 
 
 
