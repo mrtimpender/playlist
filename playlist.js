@@ -8,24 +8,27 @@ var postData = [];
 
 request.onreadystatechange = function () {
   if (request.status === 200 && request.readyState === 4){
-    var data = JSON.parse(request.responseText);
+    var data = JSON.parse(request.responseText).albums.items;
 
-    for (i=0; i<data.results.length; i++){
+    console.log(data);
+    // data[i].images[1].url
+
+    for (i=0; i<data.length; i++){
       var newImg = document.createElement("img");
-      newImg.src = "images/" + data.results[i].cover_art;
+      newImg.src = data[i].images[1].url;
       newImg.id = "album" + i;
       albumsDiv.appendChild(newImg);
     }
 
-    for (i=0; i<data.results.length; i++){
+    for (i=0; i<data.length; i++){
       var albumNum = document.getElementById("album" + i);
 
       albumNum.addEventListener("click", function(){
         var selectionNum = this.id.slice(this.id.length-1, this.id.length);
         var newSelection = document.createElement("p");
-        newSelection.innerHTML = data.results[selectionNum].artist + " : " + data.results[selectionNum].title;
+        newSelection.innerHTML = "Pink Floyd : " + data[selectionNum].name;
         trackBox.appendChild(newSelection);
-        postData.push(data.results[selectionNum]);
+        postData.push(data[selectionNum]);
       })
     }
 
@@ -37,18 +40,18 @@ clearTracks.addEventListener("click", function(){
   postData = [];
 });
 
-submitBin.addEventListener("click", function(){
-  postData = JSON.stringify(postData);
-  sendData.open('POST', "https://lit-fortress-6467.herokuapp.com/post");
-  sendData.send(postData);
-  sendData.addEventListener("load", function(event) {
-     console.log(event.target.responseText);
-   });
-   trackBox.innerHTML = "";
-   postData = [];
-})
+// submitBin.addEventListener("click", function(){
+//   postData = JSON.stringify(postData);
+//   sendData.open('POST', "https://lit-fortress-6467.herokuapp.com/post");
+//   sendData.send(postData);
+//   sendData.addEventListener("load", function(event) {
+//      console.log(event.target.responseText);
+//    });
+//    trackBox.innerHTML = "";
+//    postData = [];
+// })
 
 
 
-request.open('GET', "https://lit-fortress-6467.herokuapp.com/object", true);
+request.open('GET', "https://api.spotify.com/v1/search?q=pink%20floyd&type=album&market=US", true);
 request.send();

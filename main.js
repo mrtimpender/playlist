@@ -7,8 +7,7 @@ request.onreadystatechange = function () {
       var rando2 = document.getElementById('rando2');
       var rando3 = document.getElementById('rando3');
       var data = JSON.parse(request.responseText).albums.items;
-      // console.log(data);
-      // console.log(data[1].images[0].url);
+
       var temp = [];
       for (i=0; i<data.length; i++){
         temp.push(i);
@@ -26,11 +25,10 @@ request.onreadystatechange = function () {
         }
 
     shuffleArray(temp);
-    console.log(data[temp[0]].images[0].url);
-          rando1.src = data[temp[0]].images[1].url
-          rando2.src = data[temp[1]].images[1].url
-          rando3.src = data[temp[2]].images[1].url
 
+          rando1.src = data[temp[0]].images[1].url;
+          rando2.src = data[temp[1]].images[1].url;
+          rando3.src = data[temp[2]].images[1].url;
 
     }
 }
