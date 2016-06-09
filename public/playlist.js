@@ -8,7 +8,6 @@ $(document).ready(function(){
 
 function albumGen(albums) {
   albums.forEach(function(album) {
-
     var img = document.createElement('img');
     img.src = album.images[1].url;
     $(img).appendTo('#albums');
@@ -17,8 +16,30 @@ function albumGen(albums) {
   })
 };
 
+$(document).on('click', '.album', function (event) {
+  var albumId = event.target.id;
 
+  $.ajax({
+    url: "https://api.spotify.com/v1/albums/" + albumId,
+  }).done(function(data){
+   albumPick(data);
+  });
 
+  function albumPick(selection){
+    var pick = document.createElement('p');
+    $(pick).html(selection.name);
+    $(pick).appendTo('#trackBox');
+  }
+});
+
+$("#clearTracks").on('click', function(event){
+  $('#trackBox').empty();
+});
+
+$("#submitBin").on('click', function(event){
+  $('#trackBox').empty();
+  alert('Great picks! Your playlist has been submitted.');
+});
 
 
 //
