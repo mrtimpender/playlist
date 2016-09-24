@@ -84,7 +84,7 @@ $("#submitBin").on('click', function(event){
 //   trackBox.innerHTML = "";
 //   postData = [];
 // });
-//
+// 
 // submitBin.addEventListener("click", function(){
 //   postData = JSON.stringify(postData);
 //   sendData.open('POST', "https://lit-fortress-6467.herokuapp.com/post");
